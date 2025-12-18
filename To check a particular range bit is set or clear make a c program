@@ -1,5 +1,5 @@
 /******************************************************************************
-To check a paricular range bit is set or clear make a c program
+To check a particular range bit is set or clear make a c program
 *******************************************************************************/
 #include <stdio.h>
 
