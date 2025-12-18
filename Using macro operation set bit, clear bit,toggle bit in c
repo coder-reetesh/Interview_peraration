@@ -1,0 +1,38 @@
+/******************************************************************************
+Using macro operation set bit, clear bit,toggle bit in c
+*******************************************************************************/
+#include <stdio.h>
+// Set a bit (turn it to 1)
+#define SET_BIT(var, pos)   ((var) |= (1U << (pos)))
+
+// Clear a bit (turn it to 0)
+#define CLEAR_BIT(var, pos) ((var) &= ~(1U << (pos)))
+
+// Toggle a bit (flip 0→1 or 1→0)
+#define TOGGLE_BIT(var, pos) ((var) ^= (1U << (pos)))
+
+// Check if a bit is set (returns nonzero if true)
+#define CHECK_BIT(var, pos)  ((var) & (1U << (pos)))
+
+
+int main() {
+    unsigned int reg = 14;   // imagine this is a register
+
+    SET_BIT(reg, 3);           // set bit 2 → reg = 00000100
+    printf("After SET_BIT(3): %u\n", reg);
+
+    CLEAR_BIT(reg, 3);         // clear bit 2 → reg = 00000000
+    printf("After CLEAR_BIT(2): %u\n", reg);
+
+    SET_BIT(reg, 3);           // set bit 1 → reg = 00000010
+    TOGGLE_BIT(reg, 3);        // toggle bit 1 → reg = 00000000
+    printf("After TOGGLE_BIT(1): %u\n", reg);
+
+    SET_BIT(reg, 3);           // reg = 00001000
+    if (CHECK_BIT(reg, 3)) {
+        printf("Bit 3 is set!\n");
+    }
+    reg=reg&(~(1<<3));
+    printf("clear bit reg=%d",reg);
+    return 0;
+}
