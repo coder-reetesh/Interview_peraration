@@ -1,0 +1,61 @@
+/******************************************************************************
+using a array function check the string length
+*******************************************************************************/
+#include <stdio.h>
+
+int array_string_len(char str[])
+{
+    int i=0;
+    while(str[i]!='\0')
+    {
+        i++;
+    }
+    return i;
+}
+int main()
+{
+    char str[10]="India";
+    int len= array_string_len(str);
+    printf("string=%s\t length=%d",str,len);
+
+    return 0;
+}
+/******************************************************************************
+using a pointer function check the string length
+*******************************************************************************/
+#include <stdio.h>
+
+int ptr_strlen(char *str)
+{
+    int i=0;
+    char *ptr=str;
+    while(*ptr!='\0')
+    {
+        ptr++;
+    }
+    return ptr-str;
+}
+
+int main()
+{
+    char str[10]="OceanBlue";
+    int len= ptr_strlen(str);
+    printf("string=%s\t length=%d",str,len);
+
+    return 0;
+}
+/******************************************************************************
+using strlen function check the string length
+*******************************************************************************/
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char str[10];
+    printf("Enter the str");
+    gets(str);
+    int len = strlen(str);
+    printf("string=%s\t length=%d",str,len);
+
+    return 0;
+}
